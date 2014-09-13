@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="cardboard.js"></script>
+<style type="text/css">
+#canvas {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+</style>
+</head>
+<body ng-app="viewer">
+<div ng-controller="picker as ctrl">
+<img ng-hide="viewMode" ng-click="goToImage(image)" width="200" ng-repeat="image in images" ng-src="/images/{{image.left}}"/>
+<canvas ng-show="viewMode" width="1280" height="720" id="canvas" viewer ng-click="goBack()"></canvas>
+</div>
+</body>
+</html>
